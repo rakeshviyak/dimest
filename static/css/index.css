@@ -1,0 +1,15 @@
+#logo{
+	padding:7px 103px 7px 15px;
+}
+
+#browse_products{
+  font-size: 15px;
+  font-family: "Calibri";
+  color: rgb( 109, 50, 136 );
+  font-weight: bold;
+ }
+
+ .navbar-nav > li > a,.navbar-form {
+ 	padding-left: 9px;
+ 	padding-right: 9px;
+ }
