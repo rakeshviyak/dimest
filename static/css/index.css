@@ -1,15 +1,83 @@
+a:hover, a:focus {
+    text-decoration: none !important;
+}
+
 #logo{
 	padding:7px 103px 7px 15px;
 }
 
 #browse_products{
-  font-size: 15px;
-  font-family: "Calibri";
-  color: rgb( 109, 50, 136 );
-  font-weight: bold;
+  	font-size: 15px;
+	font-family: "Calibri";
+	color: rgb( 109, 50, 136 );
+	font-weight: bold;
+	
  }
 
- .navbar-nav > li > a,.navbar-form {
+
+#navbar-search{
+	background: url('/static/img/i_search.png') no-repeat 99% center rgb(255,255,255);
+	font-size: 18px;
+	font-family: "Calibri";
+	color: rgb( 138, 136, 139 );
+	height: 28px;
+	width:351px;
+	margin-top: 3px;
+	margin-bottom: 3px;
+	padding: 6px 7px;
+}
+
+#navbar_seperator{
+	padding-top: 13px;
+	padding-bottom: 13px;
+}
+
+#login{
+	font-size: 14px;
+ 	font-family: "Calibri";
+ 	color: rgb( 109, 50, 136 );
+}
+
+#log_out {
+  font-size: 14px;
+  font-family: "Calibri";
+  color: rgb( 50, 49, 51 );
+}
+
+.navbar-nav > li > a,.navbar-form {
  	padding-left: 9px;
  	padding-right: 9px;
  }
+
+.container_nav > ul{
+	list-style-type: none;
+	/*background-image: url('/static/img/i_base_nav.jpg');*/
+	background-color: rgb(255, 255, 255);
+	border-radius: 1px;
+	box-shadow: 1px 5px 3px 0px rgba(206,206,206,0.75);
+	display:inline-block;
+	padding: 0;
+	position: relative;
+}
+
+
+
+.container_nav > ul li{
+ 	display: inline;
+ }
+
+
+.container_nav_items{
+	font-size: 13px;
+	font-family: "Calibri";
+	color: rgb( 126, 126, 126 );
+	font-weight: bold;
+	text-align: left;
+	text-shadow: 0 1px 0 rgb( 255, 255, 255 );
+	padding: 13px 15px;
+}
+
+.container_nav_items:hover,.container_nav_items:active,.container_nav_items:focus{
+	color: rgb( 109, 50, 136 );
+}
+
