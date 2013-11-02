@@ -273,3 +273,69 @@ input[type=checkbox].css-checkbox:checked + label.css-label {
 .table{
 	margin-bottom: 0px;
 }
+
+
+#add_content > .tab-pane{
+	background-color: rgb(242,242,242);
+	/*border:solid rgb(238,238,238);*/
+	border-left: 3px solid rgb(238,238,238);
+	border-right: 3px solid rgb(238,238,238);
+	border-bottom: 3px solid rgb(238,238,238);
+	border-top: 0 solid rgb(238,238,238);
+	padding:20px;
+
+}
+
+.add_border{
+	background: url('/static/img/i_dotted_line.png') no-repeat center;
+	min-height: 236px;
+	padding:12px;
+}
+
+#add_tabs {
+	border-bottom: 0;
+	margin-top: 20px;
+}
+
+#add_tabs > li > a{
+  font-size: 22px;
+  font-family: "Calibri";
+  color: rgb(120, 120, 120);
+  font-weight: bold;
+  padding: 4px 23px 3px;
+  border-left: 3px solid rgb(238,238,238);
+  border-top: 3px solid rgb(238,238,238);
+  border-right: 3px solid rgb(238,238,238);
+  margin-right: 7px;
+}
+
+#add_tabs > li.active > a, #add_tabs>li>a:hover{
+	background-color: rgb(242,242,242);
+	color: rgb(139, 81, 166);
+	border-bottom-color: rgb(242,242,242); 
+}
+
+
+.add_plus {
+  font-size: 36px;
+  font-family: "Calibri";
+  color: rgb( 147, 147, 147 );
+  font-weight: bold;
+  line-height: 42px;
+}
+
+.add_upload {
+	font-size: 29px;
+	font-family: "Calibri";
+	color: rgb( 255, 255, 255 );
+	font-weight: bold;
+	background-color:rgb( 139, 81, 166 );
+	padding:9px;
+	position:relative;
+}
+
+.add_upload > img{
+	position:absolute;
+	top:-14px;
+	left:164px;
+}
