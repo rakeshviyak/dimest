@@ -1,0 +1,260 @@
+{% extends 'index.html' %}
+
+{% block backbone %}
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+  <script src="http://static.stackmob.com/js/json2-min.js"></script>
+  <script src="http://static.stackmob.com/js/underscore-1.4.4-min.js"></script>
+  <script src="http://static.stackmob.com/js/backbone-1.0.0-min.js"></script>
+    
+<script>
+
+  (function($){    
+
+    //Create a model
+    Product = Backbone.Model.extend({
+      idAttribute:'_id',
+    });
+    
+    //Create a collection  
+    Products = Backbone.Collection.extend({
+        Model: Product,
+        url: "#"
+    });
+
+    //Initiate a collection
+    products = new Products();
+
+    //Define Home View
+    HomeView = Backbone.View.extend({
+     
+      el: 'body',
+
+      initialize: function() {
+        this.template = _.template($('#item-home').html());
+        this.render();
+      },
+
+      render: function() {
+
+        var el = this.$el
+
+        el.empty();
+        el.append(this.template());
+
+        var listView = new ListView({collection:products});
+        $('.products_table').append(listView.render().el);
+
+        return this;
+      }
+
+    });
+
+    //Define List View -List all products in the collection
+    ListView = Backbone.View.extend({
+        
+        tagName: 'table',
+        className : 'products_table table',
+
+        initialize: function() {
+            this.collection.bind('all', _.bind(this.render,this));
+            this.template = _.template($('#item-list').html());
+        },
+
+        events: {
+          "click .remove":"remove",
+          "click .edit":"edit"
+        },
+
+        remove:function(e){
+            e.preventDefault();
+            var id = $(e.currentTarget).data("id");
+            var item = this.collection.get(id);
+            this.collection.remove(item);
+            return this;
+        },
+
+        edit:function(e){
+          e.preventDefault();
+          var id = $(e.currentTarget).data("id");
+          var item = this.collection.get(id);
+          $('.form-horizontal').empty();
+          this.collection.remove(item);
+          new AddView();
+        },
+
+        render:function (eventName) {
+          var template = this.template,
+                    el = this.$el;
+          
+          $("table tr").remove();
+          this.collection.each(function(product){
+              j=product.toJSON();
+              j['id']=product.cid;
+              console.log(template);
+              el.append(template(j));
+          });
+
+          return this;
+        }
+    });
+
+    //Define AddView - to add new products to the collection
+    AddView = Backbone.View.extend({
+
+      className:"span4",
+      tagName: "div",
+
+      events: {
+         "click #addBtn": "add",  
+         "keypress .addName":  "onEnter"
+      },
+
+      initialize: function() {
+        this.template = _.template($('#item-edit').html());
+        this.render();
+      },
+
+      render: function() {
+        $(this.el).html(this.template());
+        $('.row').append(this.el);
+        return this;
+      },
+
+      onEnter: function(e) {
+        if (e.keyCode  == 13) {
+          console.log("on Enter")
+          this.add(e); 
+        }
+      },
+
+      add: function(e) {
+        e.preventDefault();
+
+        var newProduct = new Product({name:$('#name').val(),type:$('#type').val() });
+
+        products.add(newProduct);  
+        console.log(products);
+        $('#name').val('');   
+        
+        return this;
+      }
+
+    });
+
+    //Define Router. List to two routes, home and add view
+    AppRouter = Backbone.Router.extend({
+
+      routes:{
+          "":"home",
+          "add":"add",
+      },
+
+      home:function() {
+        console.log('home');
+        new HomeView();
+      },
+
+      add:function() {
+        console.log('add');
+        new AddView();
+      },
+
+    });
+
+  }(jQuery));
+
+  $(document).ready(function () {
+
+    //initiate the router
+    productApp = new AppRouter();
+    //keeps the browser history in memory
+    Backbone.history.start();
+    //initiate new products when DOM runs
+    var p = new Products([
+      {type: "Music", name: "Unit"},
+      {type: "Video", name: "EDG"},
+      {type: "Music", name: "Plateia"}
+      ]);
+    products.add(p.toJSON());
+  });
+
+</script>
+
+<!-- Define template for the home view  -->
+<script type="text/template" id="item-home">
+  <div class="container">
+  <div class="rows">
+    <div class="col-md-6">
+      <div class="base_border">
+          <div class="base">
+            <div class="products_search">My Recently added Products:</div>
+            <table class="products_table table">
+
+            </table>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="row">
+        <div class="span4">
+          <div class="content upload_new" style="margin-bottom: 20px"><a href="#add">upload new products &gt; </a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</script>
+
+<!-- Define template for the add view (to add in new products) -->
+<script type="text/template" id="item-edit">
+  <form class="form-horizontal" method="post" role="form" style="margin-left:20px">
+      <legend>Enter the product detail:</legend>
+      <div class="form-group">
+        <label class="control-label col-md-3" for="name">Name:</label>
+        <div class="col-md-6">
+          <input type="text" class="addName form-control" id="name" name="name" placeholder="Enter the product name">
+        </div>
+      </div>
+      <div class="form-group ">
+        <select id="type" class="col-md-offset-4 addName">
+            <option>Music</option>
+            <option>Video</option>
+            <option>E-book</option>
+            <option>Other</option>
+         </select>
+      </div>
+      <div class="form-group">
+        
+        <div class="controls">
+           <button type="submit" class="col-md-3 col-md-offset-2"><a href="#" id="cancelBtn" class="btn">cancel</a></button>
+           <button type="submit" class="col-md-3 addName"><a href="#" id="addBtn" class="btn addName">add</a></button>
+        </div>
+      </div>
+  </form>
+</script>
+
+<!-- Define template for the list view (product list) -->
+<script type="text/template" id="item-list">
+  <tr class="product">
+    <td>
+      <img class="product_img" src="/static/img/i_p2_tile.jpg">
+      <img class="play_button" src="/static/img/i_play.png">
+      <span><%= name %></span>
+    </td>
+    <td>
+      <img src="/static/img/i_video.png">
+      <span><%= type %></span>
+    </td>
+    <td>
+      <a href="#" data-id="<%= id %>" class="edit" data-toggle="tooltip" title="edit">
+        <img src="/static/img/i_edit.png" alt="edit" style="padding-right:10px"></a>
+      <a href="#" data-id="<%= id %>" class="remove" data-toggle="tooltip" title="delete"><img src="/static/img/i_delete.png" alt="Delete" style="padding-right:10px"></a></td>
+  </tr>
+  <tr class="spacer"><td></td></tr>
+  
+</script>
+
+{% endblock %}

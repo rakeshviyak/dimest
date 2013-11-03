@@ -1,3 +1,31 @@
+.c_base{
+	padding-left: 46px;
+	padding-right: 10px;
+	margin-bottom: 100px;
+}
+
+.upload{
+	padding-left: 48px; ;
+}
+
+.header_container{padding-left: 11px;padding-right: 11px;}
+
+.navbar-nav > li > a.no_right_pad{padding-right: 0px;}
+.navbar-nav > li > a.no_left_pad{padding-left: 0px;}
+.navbar-nav > li > a.left_extra_pad{padding-left: 15px;}
+
+.products_base{
+	padding-right: 12px;
+}
+
+.products_base,.upload{
+	margin-top: 50px;
+}
+
+.navbar{
+	margin-bottom: 30px;
+}
+
 a:hover, a:focus {
     text-decoration: none !important;
 }
@@ -8,24 +36,11 @@ a:hover, a:focus {
 
 #browse_products{
   	font-size: 15px;
-	font-family: "Calibri";
+	font-family: 'Calibri';
 	color: rgb( 109, 50, 136 );
 	font-weight: bold;
 	
  }
-
-
-#navbar-search{
-	background: url('/static/img/i_search.png') no-repeat 99% center rgb(255,255,255);
-	font-size: 18px;
-	font-family: "Calibri";
-	color: rgb( 138, 136, 139 );
-	height: 28px;
-	width:351px;
-	margin-top: 3px;
-	margin-bottom: 3px;
-	padding: 6px 7px;
-}
 
 #navbar_seperator{
 	padding-top: 13px;
@@ -34,43 +49,73 @@ a:hover, a:focus {
 
 #login{
 	font-size: 14px;
- 	font-family: "Calibri";
+ 	font-family: 'Calibri';
  	color: rgb( 109, 50, 136 );
 }
 
 #log_out {
   font-size: 14px;
-  font-family: "Calibri";
+  font-family: 'Calibri';
   color: rgb( 50, 49, 51 );
 }
+
+.navbar{border-radius: 0;}
 
 .navbar-nav > li > a,.navbar-form {
  	padding-left: 9px;
  	padding-right: 9px;
  }
 
+
 .container_nav > ul{
 	list-style-type: none;
-	/*background-image: url('/static/img/i_base_nav.jpg');*/
 	background-color: rgb(255, 255, 255);
 	border-radius: 1px;
-	box-shadow: 1px 5px 3px 0px rgba(206,206,206,0.75);
+	box-shadow: 1px 1px 3px 0 rgba(206,206,206,0.75);
 	display:inline-block;
-	padding: 0;
+	padding: 7px 0;
 	position: relative;
+	margin-bottom: 15px;
 }
 
-
-
+.container_nav > ul:before, .container_nav > ul:after
+{
+  z-index: -1;
+  position: absolute;
+  content: "";
+  bottom: 6px;
+  left: 5px;
+  width: 50%;
+  top: 80%;
+  max-width:300px;
+  background: #FFF;
+  -webkit-box-shadow: 0 2px 9px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 0 2px 9px rgba(0, 0, 0, 1);
+  box-shadow: 0 2px 9px rgba(0, 0, 0, 1);
+  -webkit-transform: rotate(-3deg);
+  -moz-transform: rotate(-3deg);
+  -o-transform: rotate(-3deg);
+  -ms-transform: rotate(-3deg);
+  transform: rotate(-3deg);
+}
+.container_nav > ul:after
+{
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  -o-transform: rotate(3deg);
+  -ms-transform: rotate(3deg);
+  transform: rotate(3deg);
+  right: 5px;
+  left: auto;
+}
 
 .container_nav > ul li,.box_steps > ul li{
  	display: inline;
  }
 
-
 .container_nav_items{
 	font-size: 13px;
-	font-family: "Calibri";
+	font-family: 'Calibri';
 	color: rgb( 126, 126, 126 );
 	font-weight: bold;
 	text-align: left;
@@ -108,29 +153,29 @@ a:hover, a:focus {
 
 .my_shops_content {
   font-size: 13px;
-  font-family: "Calibri";
+  font-family: 'Calibri';
   color: rgb( 120, 122, 122 );
   font-weight: bold;
 }
 
 .content {
   font-size: 28px;
-  font-family: "Calibri";
+  font-family: 'Calibri';
   color: rgb( 139, 81, 166 );
   font-weight: bold;
 }
 
 
-#product-search{
+.product_search{
 	background: url('/static/img/i_search.png') no-repeat 99% center rgb(255,255,255);
 	font-size: 18px;
-	font-family: "Calibri";
+	font-family: 'Calibri';
 	color: rgb( 129, 123, 123 );
 	height: 28px;
 	width:325px;
 	margin-top: 3px;
 	margin-bottom: 3px;
-	padding: 6px 7px;
+	padding: 6px 20px 6px 7px;
 }
 
 input[type=checkbox].css-checkbox {
@@ -151,9 +196,11 @@ input[type=checkbox].css-checkbox + label.css-label {
 	line-height:15px;
 	background-repeat:no-repeat;
 	background-position: 0 0;
-	font-size:15px;
+	font-size:12px;
 	vertical-align:middle;
 	cursor:pointer;
+	font-weight: bold;
+	font-family: 'calibri';
 }
 
 input[type=checkbox].css-checkbox:checked + label.css-label {
@@ -164,7 +211,7 @@ input[type=checkbox].css-checkbox:checked + label.css-label {
 
 .find_products{
   font-size: 18px;
-  font-family: "Calibri";
+  font-family: 'Calibri';
   color: rgb( 129, 123, 123 );
   line-height: 0.8;
 }
@@ -172,7 +219,7 @@ input[type=checkbox].css-checkbox:checked + label.css-label {
 .base_border{
   background-color:rgb(238,238,238);
   padding:10px;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 .base{
@@ -181,7 +228,7 @@ input[type=checkbox].css-checkbox:checked + label.css-label {
 
 .products_search{
   font-size: 17px;
-  font-family: "Calibri";
+  font-family: 'Calibri';
   color: rgb( 0, 0, 0 );
   font-weight: bold;
   padding:22px 7px;
@@ -208,18 +255,13 @@ input[type=checkbox].css-checkbox:checked + label.css-label {
 	padding-right: 18px;
 }
 
-/*.product > td + td{
-	text-align: center;
-}*/
 .product > td + td +td{
 	text-align: right;
 }
 
 .product > td > span{
-  font-size: 14px;
-  font-family: "Calibri";
+  font-family: 'Calibri';
   color: rgb( 99, 99, 99 );
-  /*line-height: 37px;*/
 }
 
 .play_button{
@@ -260,14 +302,13 @@ input[type=checkbox].css-checkbox:checked + label.css-label {
 
 #pagination > .p_direction{
 	border:1px solid rgb(201,201,201);
-	font-family: "Calibri";
+	font-family: 'Calibri';
 	color: rgb( 139, 81, 166 );
 	font-weight: bold;
 	padding-left:5px;
 	padding-right: 5px;
 	font-size:18px;
 	letter-spacing: -2px;
-
 }
 
 .table{
@@ -277,32 +318,30 @@ input[type=checkbox].css-checkbox:checked + label.css-label {
 
 #add_content > .tab-pane{
 	background-color: rgb(242,242,242);
-	/*border:solid rgb(238,238,238);*/
 	border-left: 3px solid rgb(238,238,238);
 	border-right: 3px solid rgb(238,238,238);
 	border-bottom: 3px solid rgb(238,238,238);
 	border-top: 0 solid rgb(238,238,238);
 	padding:20px;
-
 }
 
 .add_border{
-	background: url('/static/img/i_dotted_line.png') no-repeat center;
 	min-height: 236px;
 	padding:12px;
+	border: 2px dashed rgb( 139, 81, 166 );
 }
 
 #add_tabs {
 	border-bottom: 0;
-	margin-top: 20px;
+	margin-top: 60px;
 }
 
 #add_tabs > li > a{
   font-size: 22px;
-  font-family: "Calibri";
+  font-family: 'Calibri';
   color: rgb(120, 120, 120);
   font-weight: bold;
-  padding: 4px 23px 3px;
+  padding: 2px 23px 2px;
   border-left: 3px solid rgb(238,238,238);
   border-top: 3px solid rgb(238,238,238);
   border-right: 3px solid rgb(238,238,238);
@@ -318,15 +357,15 @@ input[type=checkbox].css-checkbox:checked + label.css-label {
 
 .add_plus {
   font-size: 36px;
-  font-family: "Calibri";
+  font-family: 'Calibri';
   color: rgb( 147, 147, 147 );
   font-weight: bold;
-  line-height: 42px;
+  line-height: 39px;
 }
 
 .add_upload {
 	font-size: 29px;
-	font-family: "Calibri";
+	font-family: 'Calibri';
 	color: rgb( 255, 255, 255 );
 	font-weight: bold;
 	background-color:rgb( 139, 81, 166 );
