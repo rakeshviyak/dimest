@@ -378,3 +378,17 @@ input[type=checkbox].css-checkbox:checked + label.css-label {
 	top:-14px;
 	left:164px;
 }
+
+.products_table > tbody > tr > td.prd_tile{
+    background: rgb(250,250,250) url('/static/img/i_tile.jpg') no-repeat left;
+    padding-left: 60px;
+    height:38px;
+}
+
+.products_table > tbody > tr > td.prd_tile.tile1{background-position: 0 0;}
+.products_table > tbody > tr > td.prd_tile.tile2{background-position: 0 -50px;}
+.products_table > tbody > tr > td.prd_tile.tile3{background-position: 0 -100px;}
+.products_table > tbody > tr > td.prd_tile.tile4{background-position: 0 -150px;}
+.products_table > tbody > tr > td.prd_tile.tile5{background-position: 0 -200px;}
+.products_table > tbody > tr > td.prd_tile.tile6{background-position: 0 -250px;}
+.products_table > tbody > tr > td.prd_tile.tile7{background-position: 0 -300px;}
