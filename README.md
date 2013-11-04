@@ -29,7 +29,20 @@ Run in Heroku, using python.
 - **Backbone.js**: Used Backbone and implement MVC REST API for the products list
 - **HTML5**
 - **CSS3**
+- **less**
 
-### Link: 
+
+### Project Structure:
+	--static
+		--CSS
+		--fonts
+		--img
+		--js
+		--less
+	--templates
+		--Contains all html templates
+	--hello.py (Initiate app and perform rendering for different paths)
+	--Procfile(Heroku app initialize)
+	--requirements.txt
 	
 - http://dimest.herokuapp.com/
