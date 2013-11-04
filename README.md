@@ -33,16 +33,15 @@ Run in Heroku, using python.
 
 
 ### Project Structure:
-	--static
-		--CSS
-		--fonts
-		--img
-		--js
-		--less
-	--templates
-		--Contains all html templates
-	--hello.py (Initiate app and perform rendering for different paths)
-	--Procfile(Heroku app initialize)
-	--requirements.txt
-	
-- http://dimest.herokuapp.com/
+	--dimest
+		--static
+			--CSS
+			--fonts
+			--img
+			--js
+			--less
+		--templates
+			--Contains all html templates
+		--hello.py (Initiate app and perform rendering for different paths)
+		--Procfile(Heroku app initialize)
+		--requirements.txt
