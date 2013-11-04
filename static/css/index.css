@@ -251,7 +251,7 @@ input[type=checkbox].css-checkbox:checked + label.css-label {
 	height:13px;
 }
 
-.product > td > img{
+.product > td+td+td> img{
 	padding-right: 18px;
 }
 
@@ -265,12 +265,21 @@ input[type=checkbox].css-checkbox:checked + label.css-label {
 }
 
 .play_button{
-	position: absolute; 
+/*	position: absolute; 
 	left: 5.5px;
 	top: 5px; 
+*/
+	padding-left:5px;
 }
 
-.product_img,.play_button{
+.play_button+.product_name{
+	padding-left: 25px;
+}
+.product_name{
+	padding-left: 60px;
+}
+
+/*.product_img,.play_button{
 	display:block;
 	float:left;
 }
@@ -278,8 +287,11 @@ input[type=checkbox].css-checkbox:checked + label.css-label {
 .product_img+span,.play_button+span{
 	line-height: 37px;
 }
-
-
+*/
+/*.play_button,.play_button+span{
+position: relative;
+left: -54px;
+}*/
 .upload_new{
 	padding:23px 9px;
 	text-align: right;
@@ -381,7 +393,7 @@ input[type=checkbox].css-checkbox:checked + label.css-label {
 
 .products_table > tbody > tr > td.prd_tile{
     background: rgb(250,250,250) url('/static/img/i_tile.jpg') no-repeat left;
-    padding-left: 60px;
+    /*padding-left: 60px;*/
     height:38px;
 }
 
@@ -392,3 +404,19 @@ input[type=checkbox].css-checkbox:checked + label.css-label {
 .products_table > tbody > tr > td.prd_tile.tile5{background-position: 0 -200px;}
 .products_table > tbody > tr > td.prd_tile.tile6{background-position: 0 -250px;}
 .products_table > tbody > tr > td.prd_tile.tile7{background-position: 0 -300px;}
+
+.products_table > tbody > tr > td.prd_type{
+    padding-left: 40px;
+}
+.products_table > tbody > tr > td.prd_type.music{
+	background: rgb(250,250,250) url('/static/img/i_music.png') no-repeat left; background-position:20px 10px; 
+}
+.products_table > tbody > tr > td.prd_type.video{
+	background: rgb(250,250,250) url('/static/img/i_video.png') no-repeat left; background-position:20px 10px;
+}
+.products_table > tbody > tr > td.prd_type.ebook{
+	background: rgb(250,250,250) url('/static/img/i_book.png') no-repeat left; background-position:20px 10px;
+}
+.products_table > tbody > tr > td.prd_type.pic{
+	background: rgb(250,250,250) url('/static/img/i_image.png') no-repeat left; background-position:20px 10px;
+}
